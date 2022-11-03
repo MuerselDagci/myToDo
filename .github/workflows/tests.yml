@@ -3,7 +3,7 @@ name: CII
 on: {push}
 
 jobs:
-  test1:
+  build:
     runs-on: ubuntu-latests
     steps:
       - uses: actions/checkout@v2

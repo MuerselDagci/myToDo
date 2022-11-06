@@ -1,10 +1,10 @@
 name: CII
 
-on: {push}
+on: { push }
 
 jobs:
-  build:
-    runs-on: ubuntu-latests
+  test:
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Set up JDK 17

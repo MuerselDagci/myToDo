@@ -1,34 +1,15 @@
 package de.htwberlin.webtech.myToDo.web.api;
 
-import javax.persistence.Id;
+public class TaskManipulationRequest {
 
-public class Task {
-
-    private long id;
-    private String status;
     private String titel;
+    private String status;
     private String duedate;
 
-    public Task(long id, String status, String titel, String duedate) {
-        this.id = id;
-        this.status = status;
+    public TaskManipulationRequest(String titel, String status, String duedate) {
         this.titel = titel;
-        this.duedate = duedate;
-
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {this.id = id;}
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
         this.status = status;
+        this.duedate = duedate;
     }
 
     public String getTitel() {
@@ -37,6 +18,14 @@ public class Task {
 
     public void setTitel(String titel) {
         this.titel = titel;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getDuedate() {

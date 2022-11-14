@@ -48,6 +48,6 @@ public class TaskRestController {
     public ResponseEntity<Void> deleteTask(@PathVariable Long id){
         boolean successful = taskService.deletedById(id);
         return successful? ResponseEntity.ok().build(): ResponseEntity.notFound().build();
-    }
+     }
 
 }

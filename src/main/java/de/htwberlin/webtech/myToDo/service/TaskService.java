@@ -2,6 +2,7 @@ package de.htwberlin.webtech.myToDo.service;
 
 import de.htwberlin.webtech.myToDo.presistance.TaskEntity;
 import de.htwberlin.webtech.myToDo.presistance.TaskRepository;
+import de.htwberlin.webtech.myToDo.presistance.Wiederholung;
 import de.htwberlin.webtech.myToDo.web.api.Task;
 import de.htwberlin.webtech.myToDo.web.api.TaskManipulationRequest;
 import org.springframework.stereotype.Service;
@@ -31,7 +32,8 @@ public class TaskService {
     }
 
    public Task create(TaskManipulationRequest request){
-        var taskEntity = new TaskEntity(request.getTitel(),request.getStatus(),request.getDuedate());
+       var wiederholung = Wiederholung.valueOf(request.getWiederholung());
+        var taskEntity = new TaskEntity(request.getTitel(),request.getStatus(),request.getDuedate(),wiederholung);
         taskEntity = taskRepository.save(taskEntity);
         return transformEntity(taskEntity);
     }
@@ -46,6 +48,7 @@ public class TaskService {
         taskEntity.setTitel(request.getTitel());
         taskEntity.setStatus(request.getStatus());
         taskEntity.setDuedate(request.getDuedate());
+        taskEntity.setWiederholung(Wiederholung.valueOf(request.getWiederholung()));
         taskEntity= taskRepository.save(taskEntity);
 
         return transformEntity(taskEntity);
@@ -61,10 +64,12 @@ public class TaskService {
 
 
     private Task transformEntity(TaskEntity taskEntity){
+        var wiederholung = taskEntity.getWiederholung() != null ? taskEntity.getWiederholung().name(): Wiederholung.UNKOWN.name();
         return new Task(
                 taskEntity.getId(),
                 taskEntity.getTitel(),
                 taskEntity.getStatus(),
+                wiederholung,
                 taskEntity.getDuedate()
         );
     }

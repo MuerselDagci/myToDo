@@ -13,6 +13,7 @@ public class TaskManipulationRequest {
         this.wiederholung = wiederholung;
         this.duedate = duedate;
     }
+    public TaskManipulationRequest(){}
 
     public String getTitel() {
         return titel;

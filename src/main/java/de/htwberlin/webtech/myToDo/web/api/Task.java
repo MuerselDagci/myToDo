@@ -18,6 +18,7 @@ public class Task {
         this.duedate = duedate;
 
     }
+    public Task(){}
 
     public long getId() {
         return id;

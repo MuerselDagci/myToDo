@@ -11,11 +11,10 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/api/**")
+        registry.addMapping("*")
                 .allowedMethods("*")
                 .allowedOrigins(
-                        "https://localhost:8081",
-                        "https://git.heroku.com/mytodoo-app-frontend.git"
+                        "http://localhost:8010"
                 );
 
     }

@@ -6,12 +6,14 @@ public class TaskManipulationRequest {
     private String status;
     private String wiederholung;
     private String duedate;
+    private String beschreibung;
 
-    public TaskManipulationRequest(String titel, String status,String wiederholung, String duedate) {
+    public TaskManipulationRequest(String titel, String status,String wiederholung, String duedate,String beschreibung) {
         this.titel = titel;
         this.status = status;
         this.wiederholung = wiederholung;
         this.duedate = duedate;
+        this.beschreibung=beschreibung;
     }
     public TaskManipulationRequest(){}
 
@@ -45,5 +47,13 @@ public class TaskManipulationRequest {
 
     public void setWiederholung(String wiederholung) {
         this.wiederholung = wiederholung;
+    }
+
+    public String getBeschreibung() {
+        return beschreibung;
+    }
+
+    public void setBeschreibung(String beschreibung) {
+        this.beschreibung = beschreibung;
     }
 }

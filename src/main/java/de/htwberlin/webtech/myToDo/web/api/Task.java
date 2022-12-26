@@ -9,13 +9,15 @@ public class Task {
     private String titel;
     private String wiederholung;
     private String duedate;
+    private String beschreibung;
 
-    public Task(long id, String status, String titel,String wiederholung, String duedate) {
+    public Task(long id, String status, String titel,String wiederholung, String duedate, String beschreibung) {
         this.id = id;
         this.status = status;
         this.titel = titel;
         this.wiederholung = wiederholung;
         this.duedate = duedate;
+        this.beschreibung=beschreibung;
 
     }
     public Task(){}
@@ -58,5 +60,11 @@ public class Task {
         this.duedate = duedate;
     }
 
+    public String getBeschreibung() {
+        return beschreibung;
+    }
 
+    public void setBeschreibung(String beschreibung) {
+        this.beschreibung = beschreibung;
+    }
 }

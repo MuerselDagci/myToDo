@@ -33,7 +33,7 @@ public class TaskService {
 
    public Task create(TaskManipulationRequest request){
        var wiederholung = Wiederholung.valueOf(request.getWiederholung());
-        var taskEntity = new TaskEntity(request.getTitel(),request.getStatus(),request.getDuedate(),wiederholung);
+        var taskEntity = new TaskEntity(request.getTitel(),request.getStatus(),request.getDuedate(),wiederholung,request.getBeschreibung());
         taskEntity = taskRepository.save(taskEntity);
         return transformEntity(taskEntity);
     }
@@ -49,6 +49,7 @@ public class TaskService {
         taskEntity.setStatus(request.getStatus());
         taskEntity.setDuedate(request.getDuedate());
         taskEntity.setWiederholung(Wiederholung.valueOf(request.getWiederholung()));
+        taskEntity.setBeschreibung(request.getBeschreibung());
         taskEntity= taskRepository.save(taskEntity);
 
         return transformEntity(taskEntity);
@@ -70,7 +71,8 @@ public class TaskService {
                 taskEntity.getTitel(),
                 taskEntity.getStatus(),
                 wiederholung,
-                taskEntity.getDuedate()
+                taskEntity.getDuedate(),
+                taskEntity.getBeschreibung()
         );
     }
 }

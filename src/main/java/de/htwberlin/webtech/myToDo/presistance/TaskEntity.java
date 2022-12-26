@@ -20,21 +20,27 @@ public class TaskEntity {
     @Column (name = "duedate",nullable = false)
     private String duedate;
 
+    @Column (name = "beschreibung",nullable = true)
+    private String beschreibung;
+
     @Column(name = "Wiederholung" )
     @Enumerated(value = EnumType.STRING)
     private Wiederholung wiederholung;
 
 
-    public TaskEntity(String titel,String status, String duedate, Wiederholung wiederholung){
+    public TaskEntity(String titel, String status, String duedate, Wiederholung wiederholung,String beschreibung){
         this.titel=titel;
         this.status= status;
         this.duedate=duedate;
         this.wiederholung= wiederholung;
+        this.beschreibung=beschreibung;
     }
+
 
     public TaskEntity() {
 
     }
+
 
     public Long getId() {
         return id;
@@ -71,6 +77,14 @@ public class TaskEntity {
 
     public void setWiederholung(Wiederholung wiederholung) {
         this.wiederholung = wiederholung;
+    }
+
+    public String getBeschreibung() {
+        return beschreibung;
+    }
+
+    public void setBeschreibung(String beschreibung) {
+        this.beschreibung = beschreibung;
     }
 }
 

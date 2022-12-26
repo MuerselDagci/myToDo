@@ -1,9 +1,9 @@
 package de.htwberlin.webtech.myToDo.presistance;
 
 public enum Wiederholung {
-    TÄGLICH,
+    TAEGLICH,
     WOCHENTLICH,
     MONATLICH,
-    JÄHRLICH,
+    JAEHRLICH,
     UNKOWN
 }

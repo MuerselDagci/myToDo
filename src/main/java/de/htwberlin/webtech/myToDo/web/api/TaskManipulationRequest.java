@@ -1,11 +1,24 @@
 package de.htwberlin.webtech.myToDo.web.api;
 
-public class TaskManipulationRequest {
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
+public class TaskManipulationRequest {
+    @Size(min = 3,message = "Bitte mehr als 3 Buchstaben")
     private String titel;
+
     private String status;
+
+    @Pattern(
+          regexp = "TAEGLICH|WOCHENTLICH|MONATLICH|JAEHRLICH",
+          message = "Bitte entweder das oder das"
+    )
     private String wiederholung;
+
     private String duedate;
+    
+    @NotBlank(message = "Bitte nicht leer")
     private String beschreibung;
 
     public TaskManipulationRequest(String titel, String status,String wiederholung, String duedate,String beschreibung) {
@@ -15,7 +28,7 @@ public class TaskManipulationRequest {
         this.duedate = duedate;
         this.beschreibung=beschreibung;
     }
-    public TaskManipulationRequest(){}
+   public TaskManipulationRequest(){}
 
     public String getTitel() {
         return titel;

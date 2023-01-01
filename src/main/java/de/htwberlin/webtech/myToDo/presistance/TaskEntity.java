@@ -30,7 +30,7 @@ public class TaskEntity {
 
     public TaskEntity(String titel, String status, String duedate, Wiederholung wiederholung,String beschreibung){
         this.titel=titel;
-        this.status= status;
+        this.status=status;
         this.duedate=duedate;
         this.wiederholung= wiederholung;
         this.beschreibung=beschreibung;

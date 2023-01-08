@@ -1,5 +1,6 @@
 package de.htwberlin.webtech.myToDo.service;
 
+import de.htwberlin.webtech.myToDo.presistance.Mitarbeiter;
 import de.htwberlin.webtech.myToDo.presistance.TaskEntity;
 import de.htwberlin.webtech.myToDo.presistance.TaskRepository;
 import de.htwberlin.webtech.myToDo.presistance.Wiederholung;
@@ -33,7 +34,8 @@ public class TaskService {
 
    public Task create(TaskManipulationRequest request){
        var wiederholung = Wiederholung.valueOf(request.getWiederholung());
-        var taskEntity = new TaskEntity(request.getTitel(),request.getStatus(),request.getDuedate(),wiederholung,request.getBeschreibung());
+       var mitarbeiter = Mitarbeiter.valueOf(request.getMitarbeiter());
+        var taskEntity = new TaskEntity(request.getTitel(),request.getStatus(),request.getDuedate(),wiederholung,request.getBeschreibung(),mitarbeiter);
         taskEntity = taskRepository.save(taskEntity);
         return transformEntity(taskEntity);
     }
@@ -49,6 +51,7 @@ public class TaskService {
         taskEntity.setStatus(request.getStatus());
         taskEntity.setDuedate(request.getDuedate());
         taskEntity.setWiederholung(Wiederholung.valueOf(request.getWiederholung()));
+        taskEntity.setMitarbeiter(Mitarbeiter.valueOf(request.getMitarbeiter()));
         taskEntity.setBeschreibung(request.getBeschreibung());
         taskEntity= taskRepository.save(taskEntity);
 
@@ -64,15 +67,17 @@ public class TaskService {
         }
 
 
-    private Task transformEntity(TaskEntity taskEntity){
+    public Task transformEntity(TaskEntity taskEntity){
         var wiederholung = taskEntity.getWiederholung() != null ? taskEntity.getWiederholung().name(): Wiederholung.UNKOWN.name();
+        var mitarbeiter = taskEntity.getMitarbeiter() != null? taskEntity.getMitarbeiter().name(): Mitarbeiter.UNKNOWN.name();
         return new Task(
                 taskEntity.getId(),
                 taskEntity.getTitel(),
                 taskEntity.getStatus(),
                 wiederholung,
                 taskEntity.getDuedate(),
-                taskEntity.getBeschreibung()
+                taskEntity.getBeschreibung(),
+                mitarbeiter
         );
     }
 }

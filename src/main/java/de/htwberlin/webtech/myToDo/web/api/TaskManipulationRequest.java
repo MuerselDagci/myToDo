@@ -16,17 +16,20 @@ public class TaskManipulationRequest {
     )
     private String wiederholung;
 
+    private String mitarbeiter;
+
     private String duedate;
-    
+
     @NotBlank(message = "Bitte nicht leer")
     private String beschreibung;
 
-    public TaskManipulationRequest(String titel, String status,String wiederholung, String duedate,String beschreibung) {
+    public TaskManipulationRequest(String titel, String status,String wiederholung, String duedate,String beschreibung,String mitarbeiter) {
         this.titel = titel;
         this.status = status;
         this.wiederholung = wiederholung;
         this.duedate = duedate;
         this.beschreibung=beschreibung;
+        this.mitarbeiter=mitarbeiter;
     }
    public TaskManipulationRequest(){}
 
@@ -68,5 +71,13 @@ public class TaskManipulationRequest {
 
     public void setBeschreibung(String beschreibung) {
         this.beschreibung = beschreibung;
+    }
+
+    public String getMitarbeiter() {
+        return mitarbeiter;
+    }
+
+    public void setMitarbeiter(String mitarbeiter) {
+        this.mitarbeiter = mitarbeiter;
     }
 }

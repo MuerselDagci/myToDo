@@ -12,10 +12,7 @@ import org.mockito.Mock;
 import static org.mockito.Mockito.verify;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-
 import static org.mockito.Mockito.doReturn;
-
 
 @ExtendWith(MockitoExtension.class)
 public class TaskServiceTest implements WithAssertions {

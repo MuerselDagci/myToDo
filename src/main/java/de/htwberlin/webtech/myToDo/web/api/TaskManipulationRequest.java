@@ -11,7 +11,7 @@ public class TaskManipulationRequest {
     private String status;
 
     @Pattern(
-          regexp = "TAEGLICH|WOCHENTLICH|MONATLICH|JAEHRLICH",
+          regexp = "TAEGLICH|WOCHENTLICH|MONATLICH|JAEHRLICH|UNKOWN",
           message = "Bitte entweder das oder das"
     )
     private String wiederholung;

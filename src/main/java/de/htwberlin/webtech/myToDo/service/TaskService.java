@@ -68,7 +68,7 @@ public class TaskService {
 
 
     public Task transformEntity(TaskEntity taskEntity){
-        var wiederholung = taskEntity.getWiederholung() != null ? taskEntity.getWiederholung().name(): Wiederholung.UNKOWN.name();
+        var wiederholung = taskEntity.getWiederholung() != null ? taskEntity.getWiederholung().name(): Wiederholung.UNKNOWN.name();
         var mitarbeiter = taskEntity.getMitarbeiter() != null? taskEntity.getMitarbeiter().name(): Mitarbeiter.UNKNOWN.name();
         return new Task(
                 taskEntity.getId(),

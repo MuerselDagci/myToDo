@@ -5,5 +5,5 @@ public enum Wiederholung {
     WOCHENTLICH,
     MONATLICH,
     JAEHRLICH,
-    UNKOWN
+    UNKNOWN
 }
